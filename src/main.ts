@@ -21,7 +21,8 @@ form?.addEventListener("submit", (event) => {
   event.preventDefault(); // Verhindert das Standardverhalten des Formulars
   startQuiz();
 });
-
+clientInfoDiv.style.display = "none"
+questionDiv.style.display = "none"
 async function startQuiz() {
   const userName = userNameInput.value;
   const difficulty = difficultySelect.value;
