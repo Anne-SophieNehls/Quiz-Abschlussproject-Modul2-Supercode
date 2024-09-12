@@ -3,20 +3,19 @@ interface Question {
   correct: number;
   answers: string[];
 }
+
 let questions: Question[] = [];
 let currentQuestionIndex = 0;
 let score = 0;
 const userNameInput = document.getElementById("userInput") as HTMLInputElement;
-const languageSelect = document.getElementById("language") as HTMLSelectElement;
-const difficultySelect = document.getElementById(
-  "difficulty"
-) as HTMLSelectElement;
+const difficultySelect = document.getElementById("difficulty") as HTMLSelectElement;
 //const startBtn = document.getElementById("startBtn") as HTMLButtonElement;
 const form = document.getElementById("form") as HTMLFormElement;
 const startScreen = document.getElementById("start-screen")!;
 const clientInfoDiv = document.getElementById("client-info")!;
 const answersDiv = document.getElementById("answers-div") as HTMLDivElement;
 const questionDiv = document.getElementById("question-div") as HTMLDivElement;
+
 
 form?.addEventListener("submit", (event) => {
   event.preventDefault(); // Verhindert das Standardverhalten des Formulars
@@ -44,8 +43,8 @@ async function startQuiz() {
     showQuestion();
   } catch (error) {
     console.error("Fehler beim Abrufen der Daten:", error);
-  }
-}
+  }}
+
 function showQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
   const questionElement = document.createElement("h3");
