@@ -37,7 +37,7 @@ async function startQuiz() {
     questions = await response.json();
     currentQuestionIndex = 0;
     score = 0;
-
+    clientInfoDiv.style.display = "block"
     startScreen.style.display = "none"; // Verstecke den Startbildschirm
     questionDiv.style.display = "block"; // Zeige die Fragen an
     clientInfoDiv.innerHTML = `<h2>Willkommen, ${userName}!</h2>`;
