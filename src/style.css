@@ -1,3 +1,6 @@
+/* = Allgemeine Styles = */
+/* - gesamte Dokument - */
+
 *{
   margin: 0;
   padding: 0;
@@ -6,4 +9,127 @@
 
 html{
  scroll-behavior: smooth;
+}
+
+/* - allgemein für Tags - */
+
+h1{
+
+}
+
+h2{
+
+}
+
+h3{
+
+}
+/*  */
+
+button{
+
+}
+
+button:hover{
+
+}
+
+
+/* = im HTML vorhandene IDs = */
+
+#start-screen{
+  
+}
+
+#form{
+  
+}
+
+label{
+
+}
+
+#userInput{
+  
+}
+
+/* #language{} */
+
+#difficulty{
+  
+}
+
+#startBtn{
+  
+}
+
+/* = Output divs = */
+
+#client-info{
+  
+}
+
+#question-div{
+  
+}
+
+#answers-div{
+
+}
+
+/* = Created Elements from TS = */
+/* - Für die Userinfos - */
+
+#username{
+
+}
+
+#points{
+
+}
+
+#rounds{
+
+}
+
+#restartBtn{
+
+}
+
+/* - Für die Fragen - */
+
+.question{
+
+}
+
+.answer-1{
+
+}
+
+.answer-2{
+  
+}
+
+.answer-3{
+  
+}
+
+.answer-4{
+  
+}
+
+.next-question{
+
+}
+
+/* ! Falls wir Buttons mit farblichen feedback machen, hier die ids dafür ! */
+
+#Btn-green{
+  background-color: rgb(11, 94, 11);
+  color: white;
+}
+
+#Btn-red{
+  background-color: rgb(160, 7, 7);
+  color: white;
 }
