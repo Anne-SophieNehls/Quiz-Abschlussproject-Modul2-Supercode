@@ -1,135 +1,111 @@
 /* = Allgemeine Styles = */
 /* - gesamte Dokument - */
 
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-html{
- scroll-behavior: smooth;
+html {
+  scroll-behavior: smooth;
 }
 
 /* - allgemein für Tags - */
 
-h1{
-
+h1 {
 }
 
-h2{
-
+h2 {
 }
 
-h3{
-
+h3 {
 }
 /*  */
 
-button{
-
+button {
 }
 
-button:hover{
-
+button:hover {
 }
-
 
 /* = im HTML vorhandene IDs = */
 
-#start-screen{
-  
+#start-screen {
 }
 
-#form{
-  
+#form {
 }
 
-label{
-
+label {
 }
 
-#userInput{
-  
+#userInput {
 }
 
 /* #language{} */
 
-#difficulty{
-  
+#difficulty {
 }
 
-#startBtn{
-  
+#startBtn {
 }
 
 /* = Output divs = */
 
-#client-info{
-  
+#client-info {
 }
 
-#question-div{
-  
+#question-div {
+  display: none;
 }
 
-#answers-div{
-
+#answers-div {
 }
 
 /* = Created Elements from TS = */
 /* - Für die Userinfos - */
 
-#username{
-
+#username {
 }
 
-#points{
-
+#points {
 }
 
-#rounds{
-
+#rounds {
 }
 
-#restartBtn{
-
+#restartBtn {
 }
 
 /* - Für die Fragen - */
 
-.question{
-
+.question {
 }
 
-.answer-1{
-
+.answer-1 {
 }
 
-.answer-2{
-  
+.answer-2 {
 }
 
-.answer-3{
-  
+.answer-3 {
 }
 
-.answer-4{
-  
+.answer-4 {
 }
 
-.next-question{
-
+.next-question {
 }
 
 /* ! Falls wir Buttons mit farblichen feedback machen, hier die ids dafür ! */
 
-#Btn-green{
+#Btn-green {
   background-color: rgb(11, 94, 11);
   color: white;
 }
 
-#Btn-red{
+#Btn-red {
   background-color: rgb(160, 7, 7);
   color: white;
 }
