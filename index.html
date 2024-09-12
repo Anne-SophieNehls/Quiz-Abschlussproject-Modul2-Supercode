@@ -15,15 +15,18 @@
           <label for="userInput">Gib deinen Namen ein:</label>
           <input type="text" id="userInput" name="userInput" />
 
-          <label for="language">Sprache auswählen:</label>
-          <select id="language">
-            <option value="de">Deutsch</option>
-            <option value="en">English</option>
-          </select>
-          <label for="difficulty">Schwierigkeitsgrad wählen:</label>
-          <select id="difficulty">
-            <option value="easy">Leicht</option>
-            <option value="hard">Schwer</option>
+          <label for="diffuculty"
+            >Schwierigkeitsgrad und Language wählen:</label
+          >
+          <select id="diffuculty">
+            <optgroup label="Deutsch">
+              <option id="leicht" value="leicht">Leicht</option>
+              <option id="schwer" value="schwer">Schwer</option>
+            </optgroup>
+            <optgroup label="English">
+              <option id="easy" value="easy">Easy</option>
+              <option id="hard" value="hard">Hard</option>
+            </optgroup>
           </select>
           <submit type="submit" id="startBtn">Los Gehts!</submit>
         </form>
