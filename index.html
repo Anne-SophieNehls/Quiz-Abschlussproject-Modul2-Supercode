@@ -1,13 +1,36 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="tr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
+    <title>Quiz</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
+    <section>
+      <div id="start-screen">
+        <h1>Quiz des Tages, Yeah</h1>
+        <form id="form" action="">
+          <label for="userInput">Gib deinen Namen ein:</label>
+          <input type="text" id="userInput" name="userInput" />
+
+          <label for="language">Sprache auswählen:</label>
+          <select id="language">
+            <option value="tr">Deutsch</option>
+            <option value="en">English</option>
+          </select>
+          <label for="difficulty">Schwierigkeitsgrad wählen:</label>
+          <select id="difficulty">
+            <option value="tr">Leicht</option>
+            <option value="en">Schwer</option>
+          </select>
+          <submit type="submit" id="startBtn">Los Gehts!</submit>
+        </form>
+      </div>
+      <div id="client-info"></div>
+      <div class="question-div"></div>
+      <div class="answers-div"></div>
+      <div class="client-result"></div>
+    </section>
+    <script src="quiz.js"></script>
   </body>
 </html>
