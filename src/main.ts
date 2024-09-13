@@ -8,7 +8,9 @@ let questions: Question[] = [];
 let currentQuestionIndex = 0;
 let score = 0;
 const userNameInput = document.getElementById("userInput") as HTMLInputElement;
-const difficultySelect = document.getElementById("difficulty") as HTMLSelectElement;
+const difficultySelect = document.getElementById(
+  "difficulty"
+) as HTMLSelectElement;
 //const startBtn = document.getElementById("startBtn") as HTMLButtonElement;
 const form = document.getElementById("form") as HTMLFormElement;
 const startScreen = document.getElementById("start-screen")!;
@@ -16,13 +18,12 @@ const clientInfoDiv = document.getElementById("client-info")!;
 const answersDiv = document.getElementById("answers-div") as HTMLDivElement;
 const questionDiv = document.getElementById("question-div") as HTMLDivElement;
 
-
 form?.addEventListener("submit", (event) => {
   event.preventDefault(); // Verhindert das Standardverhalten des Formulars
   startQuiz();
 });
-clientInfoDiv.style.display = "none"
-questionDiv.style.display = "none"
+clientInfoDiv.style.display = "none";
+questionDiv.style.display = "none";
 async function startQuiz() {
   const userName = userNameInput.value;
   const difficulty = difficultySelect.value;
@@ -37,14 +38,15 @@ async function startQuiz() {
     questions = await response.json();
     currentQuestionIndex = 0;
     score = 0;
-    clientInfoDiv.style.display = "block"
+    clientInfoDiv.style.display = "block";
     startScreen.style.display = "none"; // Verstecke den Startbildschirm
     questionDiv.style.display = "block"; // Zeige die Fragen an
     clientInfoDiv.innerHTML = `<h2>Willkommen, ${userName}!</h2>`;
     showQuestion();
   } catch (error) {
     console.error("Fehler beim Abrufen der Daten:", error);
-  }}
+  }
+}
 
 function showQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
@@ -56,11 +58,16 @@ function showQuestion() {
   indexElement.innerText = `Frage ${currentQuestionIndex + 1} von ${
     questions.length
   }`;
+  //In HTML score
+  const scoreElement = document.createElement("p");
+  scoreElement.innerText = `Score: ${score}`;
+  answersDiv.appendChild(scoreElement);
+
   answersDiv.appendChild(indexElement);
   answersDiv.appendChild(questionElement);
 
   const answers = currentQuestion.answers;
-  answers.sort(() => Math.random() - 0.5); // Mische die Antworten
+  // answers.sort(() => Math.random() - 0.5); // Mische die Antworten
 
   answers.forEach((answer) => {
     const button = document.createElement("button");
@@ -72,10 +79,12 @@ function showQuestion() {
 
 function checkAnswer(selectedAnswer: string) {
   const currentQuestion = questions[currentQuestionIndex];
+  console.log(currentQuestionIndex);
   const resultElement = document.createElement("div");
 
   if (selectedAnswer === currentQuestion.answers[currentQuestion.correct]) {
     resultElement.innerHTML = "Richtig!";
+
     score++;
   } else {
     resultElement.innerHTML =
