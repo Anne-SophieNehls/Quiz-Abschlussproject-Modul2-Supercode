@@ -119,7 +119,6 @@ function showHighscores() {
     listItem.textContent = `Platz ${index + 1}.  ${entry.name}: ${entry.score}`;
     highscoreList.appendChild(listItem);
     answersDiv.style.display = "none"
-
   });
 
   const highscoreContainer = document.getElementById("highscore-container");
@@ -130,7 +129,6 @@ function showHighscores() {
 }
 
 function showFinalResult() {
-
   const newHighscore: HighscoreEntry = {
     name: userNameInput.value,
     score: score,
