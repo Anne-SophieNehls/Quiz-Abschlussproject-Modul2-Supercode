@@ -159,10 +159,3 @@ function showFinalResult() {
   showHighscores();
 }
 
-
-
-
-
-
-
-
