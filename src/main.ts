@@ -1,8 +1,4 @@
-interface Question {
-  question: string;
-  correct: number;
-  answers: string[];
-}
+import { Question, HighscoreEntry } from "./interfaces/IQuestions";
 
 let questions: Question[] = [];
 let currentQuestionIndex = 0;
@@ -102,6 +98,44 @@ function checkAnswer(selectedAnswer: string) {
   }
 }
 
+
+function saveHighscores(newHighscore: HighscoreEntry) {
+  const storedHighscores: HighscoreEntry[] = JSON.parse(localStorage.getItem("highscores") || "[]");
+  storedHighscores.push(newHighscore);
+
+  storedHighscores.sort((a, b) => b.score - a.score);
+
+  const maxHighscores = 10;
+  storedHighscores.length = Math.min(storedHighscores.length, maxHighscores);
+
+  localStorage.setItem("highscores", JSON.stringify(storedHighscores));
+}
+
+function showHighscores() {
+  const storedHighscores: HighscoreEntry[] = JSON.parse(localStorage.getItem("highscores") || "[]");
+
+  const highscoreList = document.createElement("ul");
+  storedHighscores.forEach((entry, index) => {
+    const listItem = document.createElement("li");
+    listItem.textContent = `Platz ${index + 1}.  ${entry.name}: ${entry.score}`;
+    highscoreList.appendChild(listItem);
+    answersDiv.style.display = "none"
+
+  });
+
+  const highscoreContainer = document.getElementById("highscore-container");
+  if (highscoreContainer) {
+    highscoreContainer.innerHTML = "";
+    highscoreContainer.appendChild(highscoreList);
+  }
+}
+
 function showFinalResult() {
-  questionDiv.innerHTML = `<h2>Quiz beendet!</h2><p>Ihr Ergebnis: ${score} von ${questions.length}</p>`;
+
+  const newHighscore: HighscoreEntry = {
+    name: userNameInput.value,
+    score: score,
+  };
+  saveHighscores(newHighscore);
+  showHighscores();
 }
