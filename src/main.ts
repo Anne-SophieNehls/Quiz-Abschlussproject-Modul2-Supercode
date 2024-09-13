@@ -72,34 +72,39 @@ function showQuestion() {
   const answers = currentQuestion.answers;
   // answers.sort(() => Math.random() - 0.5); // Mische die Antworten
 
+  let counter = 0
+
   answers.forEach((answer) => { 
     answerButton = document.createElement("button") as HTMLButtonElement;
-    for
     if(answerButton){
       answerButton.innerText = answer;
+      answerButton.value =`${counter}`;
       answerButton.addEventListener("click", async () => await checkAnswer(answer)
   );
 answersDiv.appendChild(answerButton);
 answerButton.classList.remove("red", "green", ); //!
-}
+} 
+counter++
   });
 }
+
 
 async function checkAnswer(selectedAnswer: string):Promise<HTMLDivElement> {
   const currentQuestion = questions[currentQuestionIndex];
   console.log(currentQuestionIndex);
   const resultElement = document.createElement("div");
- // const clickedButton = answersDiv.querySelector(`button:contains(${selectedAnswer})`); //!
+  const clickedButton = answersDiv.querySelector(`button:contains(${selectedAnswer})`); //!
 
   if (selectedAnswer === currentQuestion.answers[currentQuestion.correct]) {
+    
     resultElement.innerHTML = "Richtig!";
-    answerButton?.classList.add("green"); //!
+    clickedButton?.classList.add("green"); //!
         score++;
   } else {
     resultElement.innerHTML =
       "Falsch! Die richtige Antwort ist: " +
       currentQuestion.answers[currentQuestion.correct];
-      answerButton?.classList.add("red"); //!
+      clickedButton?.classList.add("red"); //!
   }
 
   answersDiv.appendChild(resultElement);
