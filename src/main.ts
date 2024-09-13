@@ -1,4 +1,11 @@
 import { Question, HighscoreEntry } from "./interfaces/IQuestions";
+import "./style.css"
+
+/* interface Question {
+  question: string;
+  correct: number;
+  answers: string[];
+} */
 
 let questions: Question[] = [];
 let currentQuestionIndex = 0;
@@ -43,6 +50,7 @@ async function startQuiz() {
     console.error("Fehler beim Abrufen der Daten:", error);
   }
 }
+let answerButton ;
 
 function showQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
@@ -63,28 +71,42 @@ function showQuestion() {
   answersDiv.appendChild(questionElement);
 
   const answers = currentQuestion.answers;
+  // answers.sort(() => Math.random() - 0.5); // Mische die Antworten
 
-  answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer;
-    button.addEventListener("click", () => checkAnswer(answer));
-    answersDiv.appendChild(button);
+  let counter = 0
+
+  answers.forEach((answer) => { 
+    answerButton = document.createElement("button") as HTMLButtonElement;
+    if(answerButton){
+      answerButton.innerText = answer;
+      answerButton.addEventListener("click", async () => await checkAnswer(answer)
+  );
+answersDiv.appendChild(answerButton);
+answerButton.classList.remove("red", "green", ); 
+} 
+counter++
   });
 }
 
-function checkAnswer(selectedAnswer: string) {
+async function checkAnswer(selectedAnswer: string,):Promise<void> {
   const currentQuestion = questions[currentQuestionIndex];
   console.log(currentQuestionIndex);
   const resultElement = document.createElement("div");
 
-  if (selectedAnswer === currentQuestion.answers[currentQuestion.correct]) {
-    resultElement.innerHTML = "Richtig!";
+  const clickedButton = Array.from(answersDiv.querySelectorAll("button")).find(
+    (button) => button.textContent === selectedAnswer
+  );
 
-    score++;
+  if (selectedAnswer === currentQuestion.answers[currentQuestion.correct]) {
+    
+    resultElement.innerHTML = "Richtig!";
+    clickedButton?.classList.add("green"); 
+        score++;
   } else {
     resultElement.innerHTML =
       "Falsch! Die richtige Antwort ist: " +
       currentQuestion.answers[currentQuestion.correct];
+      clickedButton?.classList.add("red"); 
   }
 
   answersDiv.appendChild(resultElement);
