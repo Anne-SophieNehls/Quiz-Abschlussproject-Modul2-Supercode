@@ -138,7 +138,7 @@ function showHighscores() {
   const highscoreList = document.createElement("ul");
   storedHighscores.forEach((entry, index) => {
     const listItem = document.createElement("li");
-    listItem.textContent = `Platz ${index + 1}.  ${entry.name}: ${entry.score}`;
+    listItem.textContent = `Platz ${index + 1}.  ${entry.name}: ${entry.score}. Punkte`;
     highscoreList.appendChild(listItem);
     answersDiv.style.display = "none"
   });
