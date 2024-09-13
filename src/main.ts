@@ -78,33 +78,34 @@ function showQuestion() {
     answerButton = document.createElement("button") as HTMLButtonElement;
     if(answerButton){
       answerButton.innerText = answer;
-      answerButton.value =`${counter}`;
       answerButton.addEventListener("click", async () => await checkAnswer(answer)
   );
 answersDiv.appendChild(answerButton);
-answerButton.classList.remove("red", "green", ); //!
+answerButton.classList.remove("red", "green", ); 
 } 
 counter++
   });
 }
 
-
-async function checkAnswer(selectedAnswer: string):Promise<HTMLDivElement> {
+async function checkAnswer(selectedAnswer: string,):Promise<void> {
   const currentQuestion = questions[currentQuestionIndex];
   console.log(currentQuestionIndex);
   const resultElement = document.createElement("div");
-  const clickedButton = answersDiv.querySelector(`button:contains(${selectedAnswer})`); //!
+
+  const clickedButton = Array.from(answersDiv.querySelectorAll("button")).find(
+    (button) => button.textContent === selectedAnswer
+  );
 
   if (selectedAnswer === currentQuestion.answers[currentQuestion.correct]) {
     
     resultElement.innerHTML = "Richtig!";
-    clickedButton?.classList.add("green"); //!
+    clickedButton?.classList.add("green"); 
         score++;
   } else {
     resultElement.innerHTML =
       "Falsch! Die richtige Antwort ist: " +
       currentQuestion.answers[currentQuestion.correct];
-      clickedButton?.classList.add("red"); //!
+      clickedButton?.classList.add("red"); 
   }
 
   answersDiv.appendChild(resultElement);
@@ -115,7 +116,6 @@ async function checkAnswer(selectedAnswer: string):Promise<HTMLDivElement> {
   } else {
     showFinalResult();
   }
-  return resultElement
 }
 
 function showFinalResult() {
