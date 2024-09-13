@@ -7,7 +7,7 @@
   box-sizing: border-box;
 }
 body{
-  background-color: rgb(21, 21, 133);
+  background-color: #20206f;
 }
 html{
  scroll-behavior: smooth;
@@ -41,19 +41,15 @@ button{
   border-radius: 10px;
   border: none;
   color: white;
-  background-color: rgb(6, 121, 144);
+  background: rgb(9,9,121);
+background: linear-gradient(180deg, rgba(9,9,121,1) 59%, rgba(0,7,255,0.6601234243697479) 100%);
   margin: 10px;
   font-size: 1.2rem;
 }
 label{
-  
+  color: white;
 }
 
-/* button:hover{
-  background-color: teal;
-} */
-
-/* = im HTML vorhandene IDs = */
 
 #start-screen{
   margin: 5%;
@@ -62,16 +58,20 @@ label{
   background-color: rgb(42, 47, 117);
   padding: 25px;
   border-radius: 15px;
-  border: solid rgb(186, 0, 186) 3px;
+  border: solid rgba(186, 0, 186, 0.44) 5px;
 }
 
 #form{
   background-color: rgb(42, 47, 117); 
+  margin-top: 100px;
+  gap: 10px;
 }
 
 #userInput{
-  width: 60%;
+  width: 35%;
   height: 40px;
+  border-radius: 10px;
+  
 }
 
 /* #language{} */
@@ -90,7 +90,7 @@ label{
   border-radius: 10px;
   border: none;
   color: white;
-  background-color: rgb(6, 121, 144);
+  background-color: rgb(9, 117, 218);
   font-size: 1.1rem;
 }
 
@@ -101,7 +101,7 @@ label{
   width: 90%;
   height: 90%;
   padding: 20px;
-  background-color: rgb(210, 244, 250);
+  background-color: #2a2f75;
   border-radius: 15px;}
 
 #question-div{
@@ -109,7 +109,7 @@ label{
   width: 90%;
   height: 90%;
   padding: 20px;
-  background-color: rgb(210, 244, 250);
+  background-color: #2a2f75;
   border-radius: 15px;
 }
 
@@ -120,7 +120,7 @@ label{
   min-width: 90%;
   min-height: 90%;
   padding: 20px;
-  background-color: rgb(210, 244, 250);
+  background-color: rgb(42, 47, 117);
   border-radius: 15px;
 }
 
