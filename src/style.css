@@ -6,7 +6,9 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+  background-color: rgb(21, 21, 133);
+}
 html{
  scroll-behavior: smooth;
  font-size: 1.5rem;
@@ -27,6 +29,7 @@ h1{
 }
 
 h1, h2, h3, p{  
+  color: whitesmoke;
   text-align: center;
   margin: 5px;
 }
@@ -42,6 +45,9 @@ button{
   margin: 10px;
   font-size: 1.2rem;
 }
+label{
+  
+}
 
 button:hover{
   background-color: teal;
@@ -53,13 +59,14 @@ button:hover{
   margin: 5%;
   min-width: 90%;
   min-height: 90%;
-  background-color: lightgoldenrodyellow;
+  background-color: rgb(42, 47, 117);
   padding: 25px;
   border-radius: 15px;
+  border: solid rgb(186, 0, 186) 3px;
 }
 
 #form{
-  background-color: beige; 
+  background-color: rgb(42, 47, 117); 
 }
 
 #userInput{
