@@ -1,3 +1,5 @@
+import "./style.css"
+
 interface Question {
   question: string;
   correct: number;
@@ -47,6 +49,7 @@ async function startQuiz() {
     console.error("Fehler beim Abrufen der Daten:", error);
   }
 }
+let answerButton ;
 
 function showQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
@@ -69,27 +72,34 @@ function showQuestion() {
   const answers = currentQuestion.answers;
   // answers.sort(() => Math.random() - 0.5); // Mische die Antworten
 
-  answers.forEach((answer) => {
-    const button = document.createElement("button");
-    button.innerText = answer;
-    button.addEventListener("click", () => checkAnswer(answer));
-    answersDiv.appendChild(button);
+  answers.forEach((answer) => { 
+    answerButton = document.createElement("button") as HTMLButtonElement;
+    for
+    if(answerButton){
+      answerButton.innerText = answer;
+      answerButton.addEventListener("click", async () => await checkAnswer(answer)
+  );
+answersDiv.appendChild(answerButton);
+answerButton.classList.remove("red", "green", ); //!
+}
   });
 }
 
-function checkAnswer(selectedAnswer: string) {
+async function checkAnswer(selectedAnswer: string):Promise<HTMLDivElement> {
   const currentQuestion = questions[currentQuestionIndex];
   console.log(currentQuestionIndex);
   const resultElement = document.createElement("div");
+ // const clickedButton = answersDiv.querySelector(`button:contains(${selectedAnswer})`); //!
 
   if (selectedAnswer === currentQuestion.answers[currentQuestion.correct]) {
     resultElement.innerHTML = "Richtig!";
-
-    score++;
+    answerButton?.classList.add("green"); //!
+        score++;
   } else {
     resultElement.innerHTML =
       "Falsch! Die richtige Antwort ist: " +
       currentQuestion.answers[currentQuestion.correct];
+      answerButton?.classList.add("red"); //!
   }
 
   answersDiv.appendChild(resultElement);
@@ -100,6 +110,7 @@ function checkAnswer(selectedAnswer: string) {
   } else {
     showFinalResult();
   }
+  return resultElement
 }
 
 function showFinalResult() {
