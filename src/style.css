@@ -49,9 +49,9 @@ label{
   
 }
 
-button:hover{
+/* button:hover{
   background-color: teal;
-}
+} */
 
 /* = im HTML vorhandene IDs = */
 
@@ -141,4 +141,14 @@ button:hover{
 
 .next-question{
   background-color: gray;
+}
+
+
+/* !bunte Buttons beim anwählen der antworen */
+.red {
+    background-color: lightcoral;
+}
+
+.green{
+    background-color: lightgreen;
 }
