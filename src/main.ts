@@ -67,7 +67,6 @@ function showQuestion() {
   answersDiv.appendChild(questionElement);
 
   const answers = currentQuestion.answers;
-  // answers.sort(() => Math.random() - 0.5); // Mische die Antworten
 
   answers.forEach((answer) => {
     const button = document.createElement("button");
